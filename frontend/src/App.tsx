@@ -4,7 +4,10 @@ import FinanceDetail from "./components/FinanceDetailComponent/FinanceDetail";
 function App() {
   return (
     <>
-      <FinanceDetail></FinanceDetail>
+      <div style={{ display: "flex" }}>
+        <FinanceDetail></FinanceDetail>
+        <FinanceDetail></FinanceDetail>
+      </div>
       <div>Color palette:</div>
       <ul>
         <li style={{ color: "#BB86FC" }}>Primary Color</li>

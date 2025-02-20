@@ -6,4 +6,12 @@
   background-color: index.$light-gray-bg;
   padding: 5px;
   border-radius: 5px;
+  width: 40%;
+  align-items: center;
+  row-gap: 10px;
+}
+
+.amount {
+  color: index.$success-color;
+  font-size: x-large;
 }

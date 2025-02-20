@@ -4,8 +4,8 @@ export default function FinanceDetail() {
   return (
     <>
       <div className="container">
-        <div>Finance detail component title</div>
-        <div>Finance detail component info</div>
+        <div>Current balance:</div>
+        <div className="amount">€150</div>
       </div>
     </>
   );
