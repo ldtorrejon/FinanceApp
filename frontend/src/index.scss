@@ -1,4 +1,15 @@
+$text-color: #e4e4e4;
+$primary-color: #bb86fc;
+$secondary-color: #03dac6;
+$button-color: #6200ee;
+$link-color: #03a9f4;
+$dark-gray-bg: #1e1e1e;
+$light-gray-bg: #333333;
+$success-color: #4caf50;
+$error-color: #d32f2f;
+$warning-color: #ff9800;
+
 body {
   background-color: #121212;
-  color: white;
+  color: $text-color;
 }
