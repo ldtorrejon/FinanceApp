@@ -1,10 +1,12 @@
 import "./App.scss";
 import { FinanceDetail } from "./components/financeDetailComponent/FinanceDetail";
+import { Navbar } from "./components/navbar/Navbar";
 
 const App: React.FC = () => {
   return (
     <>
       <FinanceDetail></FinanceDetail>
+      <Navbar></Navbar>
       <div>Color palette:</div>
       <ul>
         <li style={{ color: "#BB86FC" }}>Primary Color</li>

@@ -1,0 +1,5 @@
+@use "../index";
+
+.container {
+  background-color: index.$button-color;
+}
