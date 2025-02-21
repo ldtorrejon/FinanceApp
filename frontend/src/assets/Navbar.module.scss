@@ -2,4 +2,17 @@
 
 .container {
   background-color: index.$button-color;
+  position: fixed;
+  display: flex;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+
+  a {
+    padding: 10px;
+    color: index.$text-color;
+    text-decoration: none;
+    width: 100%;
+    text-align: center;
+  }
 }
