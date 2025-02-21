@@ -8,13 +8,13 @@ import profile from "../../assets/icons/profile.svg";
 export const Navbar: React.FC = () => {
   return (
     <div className={styles.container}>
-      <Link to="">
+      <Link to="finance">
         <img src={piggy} />
       </Link>
-      <Link to="">
+      <Link to="feed">
         <img src={home} />
       </Link>
-      <Link to="">
+      <Link to="profile">
         <img src={profile} />
       </Link>
     </div>

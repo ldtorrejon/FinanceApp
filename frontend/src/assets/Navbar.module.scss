@@ -10,9 +10,13 @@
 
   a {
     padding: 10px;
-    color: index.$text-color;
     text-decoration: none;
     width: 100%;
     text-align: center;
+  }
+
+  a:active {
+    background-color: index.$primary-color;
+    fill: index.$button-color;
   }
 }
