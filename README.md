@@ -1,4 +1,9 @@
-# MoneyChecker
-For financial needs
-first remote commit
-changed username test
+# Money Checker  
+This is a full-stack project.
+
+## Frontend  
+- React + TypeScript
+- scss
+
+## Backend (eventually)
+- Python 
