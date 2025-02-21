@@ -3,7 +3,8 @@
 .container {
   display: flex;
   flex-direction: column;
-  background-color: index.$light-gray-bg;
+  background-color: index.$dark-gray-bg;
+  border: solid 5px index.$light-gray-bg;
   padding: 5px;
   border-radius: 5px;
   width: 40%;

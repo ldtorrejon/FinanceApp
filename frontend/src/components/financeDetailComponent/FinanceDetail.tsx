@@ -1,12 +1,13 @@
+import React from "react";
 import "../../assets/FinanceDetailStyles.scss";
 
-export default function FinanceDetail() {
+export const FinanceDetail: React.FC = () => {
   return (
     <>
       <div className="container">
-        <div>Current balance:</div>
+        <div className="title">Current balance:</div>
         <div className="amount">€150</div>
       </div>
     </>
   );
-}
+};

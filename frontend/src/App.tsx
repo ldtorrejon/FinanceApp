@@ -1,13 +1,10 @@
 import "./App.scss";
-import FinanceDetail from "./components/FinanceDetailComponent/FinanceDetail";
+import { FinanceDetail } from "./components/financeDetailComponent/FinanceDetail";
 
-function App() {
+const App: React.FC = () => {
   return (
     <>
-      <div style={{ display: "flex" }}>
-        <FinanceDetail></FinanceDetail>
-        <FinanceDetail></FinanceDetail>
-      </div>
+      <FinanceDetail></FinanceDetail>
       <div>Color palette:</div>
       <ul>
         <li style={{ color: "#BB86FC" }}>Primary Color</li>
@@ -23,6 +20,6 @@ function App() {
       </ul>
     </>
   );
-}
+};
 
 export default App;
