@@ -6,7 +6,7 @@ const App: React.FC = () => {
   return (
     <>
       <Outlet />
-      <Navbar></Navbar>
+      <Navbar />
     </>
   );
 };
