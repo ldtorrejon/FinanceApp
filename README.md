@@ -1,7 +1,7 @@
 # MoneyChecker
 
-MoneyChecker is a full-stack web application designed to track finances and help users manage their financial goals. It features a frontend built with React and TypeScript, while the backend is built using Go.
-
+MoneyChecker is a full-stack web application designed to track finances and help users manage their financial goals. It features a frontend built with React and TypeScript, while the backend is built using Go. 
+Still in progress...
 ---
 
 ### 🚀 Getting Started
