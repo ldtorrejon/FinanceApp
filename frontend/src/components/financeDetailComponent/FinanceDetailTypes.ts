@@ -5,10 +5,3 @@ export type Props = {
   measureUnit: Nullable<string>;
   value: Nullable<string>;
 };
-
-export interface Finance {
-  balance: Nullable<number>;
-  goal: Nullable<number>;
-  income: Nullable<number>;
-  user_id: number;
-}

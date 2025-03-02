@@ -1,24 +1,19 @@
-import React, { useState } from "react";
-import types from "../../assets/Finance.module.scss";
-import { Props, Finance } from "./FinanceDetailTypes";
-import { Nullable } from "../../globalTypes/types";
+import React from "react";
+import types from "../../assets/FinanceDetail.module.scss";
+import { Props } from "./FinanceDetailTypes";
 
 export const FinanceDetail: React.FC<Props> = ({
   detail,
   measureUnit,
   value,
 }) => {
-  const [userData, setUserData] = useState<Nullable<Finance>>(null);
-
-  console.log(detail);
-  console.log(measureUnit);
-  console.log(value);
-
   return (
     <>
       <div className={types.container}>
-        <div>Current balance:</div>
-        <div className={types.amount}>€{userData?.balance}</div>
+        <div>{detail}</div>
+        <div className={types.amount}>
+          {value} {measureUnit}
+        </div>
       </div>
     </>
   );

@@ -1,43 +1,53 @@
 import { FinanceDetail } from "../financeDetailComponent/FinanceDetail";
-import UserData from "../../../mockData/userData.json";
+import userFinanceData from "../../../mockData/userFinanceData.json";
 import { useEffect, useState } from "react";
-import { User } from "./FinanceTypes";
+import { UserFinance } from "./FinanceTypes";
 import { Nullable } from "../../globalTypes/types";
+import { FinanceNotConf } from "../FinanceNotConf/FinanceNotConf";
 
-const getUserData = (): Nullable<User> => {
+/**
+ * Queries the user's financial data.
+ *
+ * @returns The user's financial data and null if it isn't configured.
+ */
+const reqUserFinanceData = (): Nullable<UserFinance> => {
   try {
-    const data = UserData;
-    const dateString = data.date_of_birth;
-
+    const data = userFinanceData;
     let date: Date;
-    if (dateString) {
-      date = new Date(dateString);
+    if (data.deadline) {
+      date = new Date(data.deadline);
     } else {
-      throw new Error("No date string here");
+      throw new Error("user hasn't configured yet it's finance data");
     }
-
-    return { ...data, dateOfBirth: date };
+    return { ...data, deadline: date };
   } catch (e) {
     console.error(e);
     return null;
   }
 };
 
+const GetFinanceComponent: React.FC<{ isConfigured: boolean }> = ({
+  isConfigured,
+}) => {
+  if (isConfigured) {
+    return <FinanceDetail detail={"balance"} measureUnit={"€"} value={"100"} />;
+  } else {
+    return <FinanceNotConf />;
+  }
+};
+
 export const Finance: React.FC = () => {
-  const [userData, setUserData] = useState<Nullable<User>>(null);
+  const [userFinanceData, setUserFinanceData] =
+    useState<Nullable<UserFinance>>(null);
 
   useEffect(() => {
-    setUserData(getUserData);
+    setUserFinanceData(reqUserFinanceData);
   }, []);
 
-  console.log(userData);
+  console.log(userFinanceData);
   return (
     <>
-      <FinanceDetail
-        detail={"sometitle"}
-        measureUnit={"€"}
-        value={"someValueInAString"}
-      />
+      <GetFinanceComponent isConfigured={userFinanceData !== null} />
     </>
   );
 };
