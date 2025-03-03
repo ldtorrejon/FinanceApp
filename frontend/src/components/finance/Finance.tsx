@@ -5,7 +5,7 @@ import { UserFinance } from "./FinanceTypes";
 import { Nullable } from "../../globalTypes/types";
 import { FinanceNotConf } from "../FinanceNotConf/FinanceNotConf";
 import { BALANCE, NOT_EARN, SPEND, STATUS } from "../../assets/text/en-us";
-
+import calculateFinance from "../../helperFunctions/calculateFinance";
 /**
  * Queries the user's financial data.
  *
@@ -32,27 +32,62 @@ const reqUserFinanceData = (): Nullable<UserFinance> => {
  * @param userFinanceData The user's finance data.
  * @returns An array of JSX element with either FinanceDetails or FinanceNotConf.
  */
-const getFinanceComponent = (
+const getFinanceChildComponent = (
   userFinanceData: Nullable<UserFinance>
 ): Array<JSX.Element> => {
   const financeDetails: Array<JSX.Element> = [];
-  if (!userFinanceData || !userFinanceData.balance) {
-    financeDetails.push(<FinanceNotConf />);
+
+  // All are checked so that calculcateFinance doesn't cry about null possibility. Must find cleaner solution.
+  if (
+    !userFinanceData ||
+    !userFinanceData.balance ||
+    !userFinanceData.income ||
+    !userFinanceData.goal ||
+    !userFinanceData.deadline
+  ) {
+    financeDetails.push(<FinanceNotConf key="notConfigured" />);
     return financeDetails;
   }
 
+  calculateFinance(
+    userFinanceData.balance,
+    userFinanceData.income,
+    userFinanceData.goal,
+    userFinanceData.deadline
+  );
+
   const balanceString: string = userFinanceData.balance.toString();
   financeDetails.push(
-    <FinanceDetail detail={BALANCE} measureUnit={"€"} value={balanceString} />
+    <FinanceDetail
+      key="balance"
+      detail={BALANCE}
+      measureUnit={"€"}
+      value={balanceString}
+    />
   );
   financeDetails.push(
-    <FinanceDetail detail={STATUS} measureUnit={"€"} value={balanceString} />
+    <FinanceDetail
+      key="status"
+      detail={STATUS}
+      measureUnit={"€"}
+      value={balanceString}
+    />
   );
   financeDetails.push(
-    <FinanceDetail detail={SPEND} measureUnit={"€"} value={balanceString} />
+    <FinanceDetail
+      key="spend"
+      detail={SPEND}
+      measureUnit={"€"}
+      value={balanceString}
+    />
   );
   financeDetails.push(
-    <FinanceDetail detail={NOT_EARN} measureUnit={"€"} value={balanceString} />
+    <FinanceDetail
+      key="earn"
+      detail={NOT_EARN}
+      measureUnit={"€"}
+      value={balanceString}
+    />
   );
 
   return financeDetails;
@@ -66,8 +101,11 @@ export const Finance: React.FC = () => {
     setUserFinanceData(reqUserFinanceData);
   }, []);
 
-  console.log(userFinanceData);
   return (
-    <>{getFinanceComponent(userFinanceData).map((jsxElement) => jsxElement)}</>
+    <>
+      {getFinanceChildComponent(userFinanceData).map(
+        (jsxElement) => jsxElement
+      )}
+    </>
   );
 };
