@@ -29,7 +29,7 @@ const spendingPerDay = (
   const timeDiff = Math.abs(utcDeadline - utcToday);
   const daysDiff = Math.ceil(timeDiff / (1000 * 60 * 60 * 24));
 
-  // TODO still need to calulcate based on income, balance and the amount of days left to reach goal.
+  // TODO still need to calulcate based on income, balance, expenses and the amount of days left to reach goal.
 
   // Returning stupid value which is how much he needs to earn per day to reach that goal.
   return Math.round((goal - balance) / daysDiff);
