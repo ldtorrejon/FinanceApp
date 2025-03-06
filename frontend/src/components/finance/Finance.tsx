@@ -42,6 +42,8 @@ const getFinanceChildComponent = (
     !userFinanceData ||
     !userFinanceData.balance ||
     !userFinanceData.income ||
+    !userFinanceData.expenses ||
+    !userFinanceData.payday ||
     !userFinanceData.goal ||
     !userFinanceData.deadline
   ) {
@@ -49,12 +51,16 @@ const getFinanceChildComponent = (
     return financeDetails;
   }
 
-  calculateFinance(
+  const finance = calculateFinance(
     userFinanceData.balance,
     userFinanceData.income,
+    userFinanceData.expenses,
+    userFinanceData.payday,
     userFinanceData.goal,
     userFinanceData.deadline
   );
+
+  console.log(finance);
 
   const balanceString: string = userFinanceData.balance.toString();
   financeDetails.push(
