@@ -4,7 +4,7 @@ import { JSX, useEffect, useState } from "react";
 import { UserFinance } from "./FinanceTypes";
 import { Nullable } from "../../globalTypes/types";
 import { FinanceNotConf } from "../FinanceNotConf/FinanceNotConf";
-import { BALANCE, NOT_EARN, SPEND, STATUS } from "../../assets/text/en-us";
+import { BALANCE, GOAL, PER_DAY, SPEND, STATUS } from "../../assets/text/en-us";
 import calculateFinance from "../../helperFunctions/calculateFinance";
 /**
  * Queries the user's financial data.
@@ -71,28 +71,25 @@ const getFinanceChildComponent = (
       value={balanceString}
     />
   );
+
   financeDetails.push(
     <FinanceDetail
-      key="status"
-      detail={STATUS}
+      key="goal"
+      detail={GOAL}
       measureUnit={"€"}
-      value={balanceString}
+      value={userFinanceData.goal.toString()}
     />
+  );
+
+  financeDetails.push(
+    <FinanceDetail key="status" detail={STATUS} value={finance.status} />
   );
   financeDetails.push(
     <FinanceDetail
       key="spend"
-      detail={SPEND}
+      detail={`${SPEND} ${PER_DAY}`}
       measureUnit={"€"}
-      value={balanceString}
-    />
-  );
-  financeDetails.push(
-    <FinanceDetail
-      key="earn"
-      detail={NOT_EARN}
-      measureUnit={"€"}
-      value={balanceString}
+      value={finance.spendADay.toString()}
     />
   );
 
