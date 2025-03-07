@@ -5,7 +5,9 @@ import { UserFinance } from "./FinanceTypes";
 import { Nullable } from "../../globalTypes/types";
 import { FinanceNotConf } from "../FinanceNotConf/FinanceNotConf";
 import { BALANCE, GOAL, PER_DAY, SPEND, STATUS } from "../../assets/text/en-us";
+
 import calculateFinance from "../../helperFunctions/calculateFinance";
+import types from "../../assets/Finance.module.scss";
 /**
  * Queries the user's financial data.
  *
@@ -105,10 +107,10 @@ export const Finance: React.FC = () => {
   }, []);
 
   return (
-    <>
+    <div className={types.container}>
       {getFinanceChildComponent(userFinanceData).map(
         (jsxElement) => jsxElement
       )}
-    </>
+    </div>
   );
 };
