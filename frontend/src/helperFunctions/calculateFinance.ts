@@ -58,7 +58,7 @@ const spendingPerDay = (
   }
 
   const res = (balance + paydays * income - goal) / daysLeft;
-  return res >= 0 ? res : -1;
+  return res >= 0 ? Math.floor(res * 100) / 100 : -1;
 };
 
 const monthDiff = (currentDate: Date, deadline: Date): number =>
