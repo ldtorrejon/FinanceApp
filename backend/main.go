@@ -9,6 +9,7 @@ import (
 
 	"github.com/jackc/pgx/v5"
 	"github.com/joho/godotenv"
+	"github.com/ldtorrejon/MoneyChecker/backend/routes"
 )
 
 func handler(w http.ResponseWriter, r *http.Request) {
@@ -41,7 +42,10 @@ func main() {
 	defer conn.Close(context.Background())
 
 	// Start the HTTP server.
+	
 	http.HandleFunc("/", handler)
+	routes.SetupRoutes()
 	fmt.Println("Server running on port 8080")
+	
 	log.Fatal(http.ListenAndServe(":8080", nil))
 }
