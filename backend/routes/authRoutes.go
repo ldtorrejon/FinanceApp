@@ -3,12 +3,21 @@ package routes
 import (
 	"fmt"
 	"net/http"
+
+	"github.com/ldtorrejon/MoneyChecker/backend/routes/security"
 )
 
-func AuthHandler(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintln(w, "Testing the auth api")
+func LoginHandler(w http.ResponseWriter, r *http.Request) {
+	token, err := security.GenerateToken("testuser")
+	if err != nil {
+		http.Error(w, "Could not generate token", http.StatusInternalServerError)
+		return
+	}
+
+	w.WriteHeader(http.StatusOK)
+	fmt.Fprintf(w, "Token: %s", token)
 }
 
 func SetupRoutes() {
-	http.HandleFunc("/api/auth", AuthHandler)
+	http.HandleFunc("/api/auth/login", LoginHandler)
 }
