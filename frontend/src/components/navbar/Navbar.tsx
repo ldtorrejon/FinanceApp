@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "../../assets/Navbar.module.scss";
+import styles from "../../assets/scss/Navbar.module.scss";
 import { Link } from "react-router";
 import piggy from "../../assets/icons/piggy.svg";
 import home from "../../assets/icons/home.svg";
