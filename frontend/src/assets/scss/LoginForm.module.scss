@@ -1,0 +1,17 @@
+@use "../../index";
+
+.loginForm {
+  display: flex;
+  width: 60%;
+  margin: auto;
+  flex-direction: column;
+  border-radius: 10px;
+  padding: 10px;
+  text-align: center;
+  background-color: index.$light-gray-bg;
+  color: index.$primary-color;
+}
+
+.loginEntry {
+  color: index.$secondary-color;
+}

@@ -33,7 +33,7 @@ const reqFinanceData = (): Promise<Nullable<FinanceData>> => {
  * @param financeData The user's finance data.
  * @returns An array of JSX element(s) with either FinanceTopicCards or FinanceNotConf.
  */
-const getJsxChildren = (
+const getFinanceTopicCards = (
   financeData: Nullable<FinanceData>
 ): Array<JSX.Element> => {
   const jsxChildren: Array<JSX.Element> = [];
@@ -87,7 +87,7 @@ export const FinanceOverview: React.FC = () => {
 
   return (
     <div className={styles.container}>
-      {getJsxChildren(financeData).map((jsxElement) => jsxElement)}
+      {getFinanceTopicCards(financeData).map((jsxElement) => jsxElement)}
     </div>
   );
 };
