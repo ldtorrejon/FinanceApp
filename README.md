@@ -6,7 +6,7 @@ Still in progress...
 
 ### 🚀 Getting Started
 
-Follow these instructions to get the project up and running on your local machine.
+Follow these instructions to get the project up and running on your local machine. However this won't work without having some mock data files. They mimick the database data in json format.
 
 #### Prerequisites
 
