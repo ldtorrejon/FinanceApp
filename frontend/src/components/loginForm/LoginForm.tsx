@@ -1,5 +1,6 @@
 import { FC } from "react";
 import styles from "../../assets/scss/LoginForm.module.scss";
+import { Link } from "react-router";
 
 const LoginEntry: FC<{ entryName: string }> = ({ entryName }) => {
   return (
@@ -17,7 +18,7 @@ export const LoginForm: FC = () => {
       <LoginEntry entryName="username" />
       <LoginEntry entryName="password" />
       <div>
-        Don't have an account yet? <a href="/register">Register</a>
+        Don't have an account yet? <Link to="/register">Register</Link>
       </div>
       <button type="submit">login</button>
     </form>

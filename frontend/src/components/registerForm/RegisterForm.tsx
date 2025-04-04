@@ -1,4 +1,5 @@
 import { FC } from "react";
+import { Link } from "react-router";
 
 const RegisterEntry: FC<{ entryName: string }> = ({ entryName }) => {
   return (
@@ -16,7 +17,7 @@ export const RegisterForm: FC = () => {
       <RegisterEntry entryName="username" />
       <RegisterEntry entryName="password" />
       <div>
-        Already have an account? <a href="/login">Login</a>
+        Already have an account? <Link to="/login">Login</Link>
       </div>
     </form>
   );

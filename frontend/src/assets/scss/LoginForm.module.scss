@@ -2,12 +2,10 @@
 
 .loginForm {
   display: flex;
-  width: 60%;
-  margin: auto;
+  flex: 1;
   flex-direction: column;
   border-radius: 10px;
   padding: 10px;
-  text-align: center;
   background-color: index.$light-gray-bg;
   color: index.$primary-color;
 }

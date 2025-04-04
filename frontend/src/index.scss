@@ -16,4 +16,13 @@ body {
   color: $text-color;
   font-family: "Poppins", sans-serif;
   font-weight: 400;
+  margin: 0;
+  border: 1px solid red;
+  display: flex;
+  justify-content: center;
+
+  > div {
+    width: 80%;
+    display: flex;
+  }
 }
