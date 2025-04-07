@@ -1,23 +1,21 @@
 import { FC } from "react";
 import { Link } from "react-router";
-
-const RegisterEntry: FC<{ entryName: string }> = ({ entryName }) => {
-  return (
-    <div>
-      <label>{entryName}</label>
-      <input></input>
-    </div>
-  );
-};
+import styles from "../../assets/scss/RegisterForm.module.scss";
+import { FormEntry } from "../loginForm/LoginForm";
 
 export const RegisterForm: FC = () => {
   return (
-    <form>
-      <h2>Register</h2>
-      <RegisterEntry entryName="username" />
-      <RegisterEntry entryName="password" />
-      <div>
-        Already have an account? <Link to="/login">Login</Link>
+    <form className={styles.registerForm}>
+      <h1 className={styles.registerFormTitle}>Register</h1>
+      <FormEntry labelName="Username" />
+      <FormEntry labelName="Password" inputType="password" />
+      <FormEntry labelName="Repeat password" inputType="password" />
+      <button className={styles.registerButton}>Register</button>
+      <div style={{ textAlign: "center", marginTop: "40px", fontSize: "20px" }}>
+        Already have an account?{" "}
+        <Link className={styles.link} to="/login">
+          Login
+        </Link>
       </div>
     </form>
   );

@@ -1,6 +1,6 @@
 @use "../../index";
 
-.loginForm {
+.registerForm {
   margin-top: 100px;
   display: flex;
   flex-direction: column;
@@ -9,36 +9,18 @@
   background-color: index.$dark-gray-bg;
   color: index.$text-color;
   width: 400px;
-  height: 500px;
+  height: 550px;
   align-self: center;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-.loginFormTitle {
+.registerFormTitle {
   text-align: center;
   color: index.$primary-color;
 }
 
-.formEntry {
-  display: flex;
-  flex-direction: column;
-  font-size: 20px;
-  margin-bottom: 30px;
-}
-
-.inputFormEntry {
-  border: 0px;
-  height: 35px;
-  border-radius: 10px;
-  font-size: 20px;
-}
-
-.inputFormEntry:focus {
-  outline-color: index.$secondary-color;
-}
-
-.loginButton {
-  margin-top: 30px;
+.registerButton {
+  margin-top: 10px;
   height: 45px;
   border-radius: 10px;
   border: none;
